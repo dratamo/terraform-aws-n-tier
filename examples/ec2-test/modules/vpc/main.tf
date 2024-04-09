@@ -20,7 +20,7 @@ module "public_subnet" {
   name                       = "public-subnet"
   vpc-id                     = aws_vpc.vpc.id
   cidr-block                 = var.public-subnet-cidr
-  public                     = true
+  public                     = true # Drata: map_public_ip_on_launch should be set to any of false
   aws-default-route-table-id = aws_vpc.vpc.default_route_table_id
 }
 
