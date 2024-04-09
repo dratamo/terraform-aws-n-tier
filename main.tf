@@ -150,6 +150,7 @@ module "application-load-balancer" {
   name            = "simple-project-elb"
   instance-ids    = module.instance-cluster-private.ids
   subnets         = module.project-vpc.public-subnet-ids
+  # Drata: Configure [aws_lb.subnets] to improve infrastructure availability and resilience. Define at least 2 subnets or availability zones on your load balancer to enable zone redundancy
   security-groups = [module.security-group-public.id]
   vpc-id          = module.project-vpc.vpc-id
   certificate-arn = module.https-connection.arn
